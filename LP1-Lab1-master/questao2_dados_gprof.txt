@@ -1,0 +1,17 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+100.90      0.06     0.06        1    60.54    60.54  primo(long)
+  0.00      0.06     0.00        2     0.00     0.00  fatorial(int)
+  0.00      0.06     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00      0.06     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+
+Tabela gerada com valor fornecido pelo usuário sendo igual a 10.
+Fatorial de 10: 3628800
+Maior número primo antes de 3628800: 3628789
+Função mais chamada nessa situação: fatorial
+Função que mais demorou: primo
+
+Vale salientar que as funções são chamadas na função main e ambas são recursivas.

@@ -1,0 +1,39 @@
+Através do depurador GDB, foi possível verificar as seguintes diretivas:
+
+Função "funcX"
+
+Esta função recebe os valores de arg1 e arg2, incrementando-os e realizando a soma.
+A variável result recebe o resultado dessa soma, que é 36 e retorna para o usuário.
+Porém, como este valor não é passado por referência, as variáveis originais arg1
+e arg2 não tem seu valor alterado, continuando com 11 e 23, respectivamente.
+
+Função "funcY"
+
+Esta função recebe como parâmetros o endereço de memória da variável arg1 e o valor de arg2.
+No seu escopo, a função cria um ponteiro y que receberá como valor o que está armazenado
+no endereço de memória de arg1 (ou seja: 11). Logo mais, é multiplicado por 5 o valor de y,
+que passa a valer 55.
+A variável result vai conter o que está armazenado no ponteiro y (55) e somar com o valor
+de b (arg2 = 23), resultando em: 78.
+Percebemos que em nenhum momento o valor contido no endereço de memória de arg1 e arg2
+foi modificado, sendo assim, as variáveis ainda contém, respectivamente, 11 e 23 como valores.
+
+Função "funcZ"
+
+Esta função recebe como parâmetro os valores de arg1, arg2 e um endereço de memória referenciando
+result. Em seu escopo, o valor de arg1 é incrementado, passando a ser 12. Logo após, o valor de result
+será o resultado da seguinte equação:
+  -> a (arg1 + 1 = 12) +
+  -> 2 * b (2 * arg2 => 2 * 23 = 46) +
+  -> valor prévio de result (0)
+  ==> 12 + 46 + 0 = 58.
+Por ser uma função do tipo void, "funcZ" não retorna algum valor. Percebe-se também que em nenhum momento
+os valores de arg1 e arg2 são passados por referência, então eles não alterados na função main.
+Sendo assim, os valores de arg1 e arg2, continuam, respectivamente, 11 e 23.
+
+Concluindo:
+
+A ferramenta apresentada pelo professor Silvio é de extrema importância. Facilita a identificação de erros
+e ajuda a realizar um passo a passo das ações do algoritmo. Tudo isso de uma forma não invasiva,
+ou seja, sem alterar diretamente o código fonte. Isso é útil pois evita erros decorrentes de falha da memória
+humana e impede que novos erros surjam.
