@@ -26,3 +26,18 @@ ostream& operator<< (ostream &o, Product const &p)
 {
 	return p.print(o);
 }
+
+double Product::operator+ (Product &p)
+{
+	return this->m_price + p.getPrice();
+}
+
+double Product::operator- (Product &p)
+{
+	return this->m_price - p.getPrice();
+}
+
+bool Product::operator== (Product &p)
+{
+	return this->m_barcode.compare( p.getBarcode() ) == 0;
+}

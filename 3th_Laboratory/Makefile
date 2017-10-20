@@ -24,7 +24,7 @@ init:
 	@mkdir -p $(SRC_DIR)/
 	@mkdir -p $(DOC_DIR)/
 
-store: $(OBJ_DIR)/product.o $(OBJ_DIR)/fruit.o $(OBJ_DIR)/beverage.o $(OBJ_DIR)/main.o
+store: $(OBJ_DIR)/product.o $(OBJ_DIR)/fruit.o $(OBJ_DIR)/beverage.o $(OBJ_DIR)/store.o $(OBJ_DIR)/main.o
 	@echo "============="
 	@echo "Connecting the target $@"
 	@echo "============="
@@ -39,6 +39,9 @@ $(OBJ_DIR)/fruit.o: $(SRC_DIR)/task_one/fruit.cpp $(INC_DIR)/task_one/fruit.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(OBJ_DIR)/beverage.o: $(SRC_DIR)/task_one/beverage.cpp $(INC_DIR)/task_one/beverage.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/store.o: $(SRC_DIR)/task_one/store.cpp $(INC_DIR)/task_one/store.h
 	$(CC) -c $(CFLAGS) -o $@ $<		
 
 $(OBJ_DIR)/main.o: $(SRC_DIR)/task_one/main.cpp

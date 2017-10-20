@@ -24,6 +24,9 @@ class Product
 		void setDescription(string _description);
 		void setPrice(double _price);		
 		friend ostream& operator<< (ostream &o, Product const &t);
+		double operator+ (Product &p);
+		double operator- (Product &p);
+		bool operator== (Product &p);
 		  
 	private:
 		virtual ostream& print(ostream&) const = 0;
