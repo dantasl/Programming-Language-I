@@ -1,5 +1,5 @@
 #include <iomanip>
-#include "fruit.h"
+#include "task_one/fruit.h"
 
 Fruit::Fruit() {}
 
@@ -19,8 +19,8 @@ void Fruit::setDate(string const _date) { m_date = _date; }
 
 void Fruit::setShelfLife(short const _shelfLife) { m_shelfLife = _shelfLife; }
  
-ostream& 
-Fruit::print(ostream &o) const {
+ostream& Fruit::print(ostream &o) const
+{
 	o   << setfill (' ') << setw (10) << m_barcode << " | " 
 		<< setfill ('.') << setw (20) << m_description << " | " 
 		<< setfill (' ') << setw (5) << m_price << " | "
