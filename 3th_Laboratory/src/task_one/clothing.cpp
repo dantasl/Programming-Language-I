@@ -3,7 +3,7 @@
 
 Clothing::Clothing() {}
 
-Clothing::Clothing(string _code, string _description, short _price, string _brand, char _gender, short _size)
+Clothing::Clothing(string _code, string _description, double _price, string _brand, char* _gender, char* _size)
 	: Product(_code, _description, _price)
 	, m_brand(_brand)
 	, m_gender(_gender)
@@ -13,8 +13,8 @@ Clothing::Clothing(string _code, string _description, short _price, string _bran
 Clothing::~Clothing() {}
 
 string Clothing::getBrand() { return m_brand; }
-char Clothing::getGender() { return m_gender; }
-short Clothing::getSize() { return m_size; }
+char* Clothing::getGender() { return m_gender; }
+char* Clothing::getSize() { return m_size; }
 void Clothing::setBrand(string _brand) { m_brand = _brand; }
 void Clothing::setGender(char _gender) { m_gender = _gender; }
 void Clothing::setSize(short _size) { m_size = _size; }

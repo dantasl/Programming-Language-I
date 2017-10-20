@@ -3,7 +3,7 @@
 
 Fruit::Fruit() {}
 
-Fruit::Fruit(string _code, string _description, short _price, string _date, short _shelfLife)
+Fruit::Fruit(string _code, string _description, double _price, string _date, int _shelfLife)
 	: Product(_code, _description, _price)
 	, m_date(_date)
 	, m_shelfLife(_shelfLife)
@@ -13,11 +13,11 @@ Fruit::~Fruit() {}
 
 string Fruit::getDate() { return m_date; }
 
-short Fruit::getShelfLife() { return m_shelfLife; }
+int Fruit::getShelfLife() { return m_shelfLife; }
 
 void Fruit::setDate(string const _date) { m_date = _date; }
 
-void Fruit::setShelfLife(short const _shelfLife) { m_shelfLife = _shelfLife; }
+void Fruit::setShelfLife(int const _shelfLife) { m_shelfLife = _shelfLife; }
  
 ostream& Fruit::print(ostream &o) const
 {

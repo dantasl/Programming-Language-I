@@ -4,7 +4,7 @@ Product::Product() {}
 
 Product::~Product() {}
 
-Product::Product(string _code, string _description, short _price)
+Product::Product(string _code, string _description, double _price)
 	: m_barcode(_code)
 	, m_description(_description)
 	, m_price(_price) 

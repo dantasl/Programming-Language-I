@@ -7,18 +7,18 @@ class Fruit : public Product
 {
 	public:
 		Fruit();
-		Fruit(string _code, string _description, short _price, string _date, short _shelfLife);
+		Fruit(string _code, string _description, double _price, string _date, int _shelfLife);
 		~Fruit();
 
 	private:
 		string m_date;
-		short m_shelfLife;
+		int m_shelfLife;
 
 	public:
 		string getDate();
-		short getShelfLife();
+		int getShelfLife();
 		void setDate(string const _data);
-		void setShelfLife(short const _validade);
+		void setShelfLife(int const _validade);
 
 	private:
 		ostream& print(ostream &o) const;

@@ -13,10 +13,13 @@ int main(int argc, char const *argv[])
 {
 	Store lista;
 
-	lista.addProduct(make_shared<Fruit>("001002003-45","Maca verde",8.70,"01/10/2017",18));
-	lista.addProduct(make_shared<Fruit>("001002003-45","Maca verde",8.70,"01/10/2017",18));
-	lista.addProduct(make_shared<Fruit>("001002004-44","Laranja",4.75,"23/09/2017",15));
-	lista.addProduct(make_shared<Fruit>("001002005-11","Limao verde",2.30,"01/10/2017",25));
+	lista.readFruits();
+	lista.readBeverages();
+	lista.readClothes();
 
 	lista.printProducts();
+
+	//cout << "Procurando produtos pelo codigo de barras: " << endl;
+	//shared_ptr<Product> p = lista.searchProduct("001002003-45");
+	//if (p != nullptr) cout << *p << endl;
 }

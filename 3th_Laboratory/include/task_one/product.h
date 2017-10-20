@@ -8,7 +8,7 @@ class Product
 {
 	public:		
 		Product();
-		Product(string _code, string _description, short _price);
+		Product(string _code, string _description, double _price);
 		virtual ~Product();
 
 	protected:		

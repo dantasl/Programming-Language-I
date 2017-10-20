@@ -3,15 +3,15 @@
 
 Beverage::Beverage() {}
 
-Beverage::Beverage(string _code, string _description, short _price, short _alcoholContent)
+Beverage::Beverage(string _code, string _description, double _price, int _alcoholContent)
 	: Product(_code, _description, _price)
 	, m_alcoholContent(_alcoholContent)
 	{ /* empty... */ }
 
 Beverage::~Beverage() {}
 
-short Beverage::getAlcoholContent() { return m_alcoholContent; }
-void Beverage::setAlcoholContent(short const _alcoholContent)
+int Beverage::getAlcoholContent() { return m_alcoholContent; }
+void Beverage::setAlcoholContent(int const _alcoholContent)
 { 
 	m_alcoholContent = _alcoholContent;
 }

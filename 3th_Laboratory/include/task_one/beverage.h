@@ -7,15 +7,15 @@ class Beverage : public Product
 {
 	public:
 		Beverage();
-		Beverage(string _code, string _description, short _price, short _alcoholContent);
+		Beverage(string _code, string _description, double _price, int _alcoholContent);
 		~Beverage();
 
 	private:
-		short m_alcoholContent;
+		int m_alcoholContent;
 
 	public:
-		short getAlcoholContent();
-		void setAlcoholContent(short const _alcoholContent);
+		int getAlcoholContent();
+		void setAlcoholContent(int const _alcoholContent);
 
 	private:
 		ostream& print(ostream &o) const;
