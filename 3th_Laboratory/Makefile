@@ -12,10 +12,10 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 
 .PHONY: all clean distclean doxy
 
-all: store
+all: store agency
 
 debug: CFLAGS += -g -O0
-debug: store
+debug: store agency
 
 init:
 	@mkdir -p $(BIN_DIR)/
@@ -49,6 +49,26 @@ $(OBJ_DIR)/store.o: $(SRC_DIR)/task_one/store.cpp $(INC_DIR)/task_one/store.h
 
 $(OBJ_DIR)/main.o: $(SRC_DIR)/task_one/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
+
+agency: $(OBJ_DIR)/checking_account.o $(OBJ_DIR)/agency.o $(OBJ_DIR)/transaction.o $(OBJ_DIR)/main2.o
+	@echo "============="
+	@echo "Connecting the target $@"
+	@echo "============="
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
+	@echo "+++ [Executable agency created in $(BIN_DIR)] +++"
+	@echo "============="
+
+$(OBJ_DIR)/checking_account.o: $(SRC_DIR)/task_two/checking_account.cpp $(INC_DIR)/task_two/checking_account.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/agency.o: $(SRC_DIR)/task_two/agency.cpp $(INC_DIR)/task_two/agency.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/transaction.o: $(SRC_DIR)/task_two/transaction.cpp $(INC_DIR)/task_two/transaction.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/main2.o: $(SRC_DIR)/task_two/main.cpp
+	$(CC) -c $(CFLAGS) -o $@ $<	
 
 doxy:
 	$(RM) $(DOC_DIR)/*
