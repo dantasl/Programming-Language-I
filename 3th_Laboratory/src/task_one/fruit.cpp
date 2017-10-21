@@ -23,7 +23,7 @@ ostream& Fruit::print(ostream &o) const
 {
 	o   << setfill (' ') << setw (10) << m_barcode << " | " 
 		<< setfill ('.') << setw (20) << m_description << " | " 
-		<< setfill (' ') << setw (5) << m_price << " | "
+		<< setfill (' ') << setw (6) << m_price << " | "
 		<< setfill (' ') << setw (10) << m_date << " | " 
 		<< setfill (' ') << setw (3) << m_shelfLife;
 	return o;

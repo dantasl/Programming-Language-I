@@ -7,21 +7,21 @@ class Clothing : public Product
 {
 	public:
 		Clothing();
-		Clothing(string _code, string _description, double _price, string _brand, char* _gender, char* _size);
+		Clothing(string _code, string _description, double _price, string _brand, string _gender, string _size);
 		~Clothing();
 
 	private:
 		string m_brand;
-		char* m_gender;
-		char* m_size;
+		string m_gender;
+		string m_size;
 
 	public:
 		string getBrand();
-		char* getGender();
-		char* getSize();
+		string getGender();
+		string getSize();
 		void setBrand(string _brand);
-		void setGender(char _gender);
-		void setSize(short _size);
+		void setGender(string _gender);
+		void setSize(string _size);
 
 	private:
 		ostream& print(ostream &o) const;

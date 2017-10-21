@@ -21,6 +21,7 @@ void Store::addProduct(shared_ptr<Product> p)
 
 void Store::printProducts()
 {
+	if ( catalog.size() == 0 ) { cout << "Your catalog is currently empty... " << endl << endl; return; }
 	for (auto i = catalog.begin(); i != catalog.end(); ++i)
 		cout << (**i) << endl;
 }
@@ -43,6 +44,7 @@ void Store::deleteProduct(string _barcode)
 		if( (**i).getBarcode().compare(_barcode) == 0 )
 		{
 			catalog.erase(i);
+			cout << endl << "Successfully deleted the product!" << endl;
 			return;
 		}	
 			
@@ -63,12 +65,15 @@ void Store::readFruits()
 	string line;	
 	while ( getline(fruits, line) )
 	{
+		stringstream aux(line);
 		string barcode, description, shelfLife, price, date;
-		getline(fruits, barcode, ';');
-		getline(fruits, description, ';');
-		getline(fruits, price, ';');
-		getline(fruits, date, ';');
-		getline(fruits, shelfLife, ';');
+
+		getline(aux, barcode, ';');
+		getline(aux, description, ';');
+		getline(aux, price, ';');
+		getline(aux, date, ';');
+		getline(aux, shelfLife, ';');
+
 		addProduct( make_shared<Fruit>( barcode, description, stod(price), date, stoi(shelfLife) ) );
 	}	
 }
@@ -86,11 +91,14 @@ void Store::readBeverages()
 	string line;	
 	while ( getline(beverages, line) )
 	{
+		stringstream aux(line);
 		string barcode, description, price, alcoholContent;
-		getline(beverages, barcode, ';');
-		getline(beverages, description, ';');
-		getline(beverages, price, ';');
-		getline(beverages, alcoholContent, ';');
+		
+		getline(aux, barcode, ';');
+		getline(aux, description, ';');
+		getline(aux, price, ';');
+		getline(aux, alcoholContent, ';');
+		
 		addProduct( make_shared<Beverage>( barcode, description, stod(price), stoi(alcoholContent) ) );
 	}
 }
@@ -108,25 +116,16 @@ void Store::readClothes()
 	string line;	
 	while ( getline(clothes, line) )
 	{
-		string barcode, description, price, brand;
-		string gender, size;
-		getline(clothes, barcode, ';');
-		getline(clothes, description, ';');
-		getline(clothes, price, ';');
-		getline(clothes, brand, ';');
-		getline(clothes, gender, ';');
-		getline(clothes, size, ';');
+		stringstream aux(line);
+		string barcode, description, price, brand, gender, size;
 
-		//converting strings to char
-		char *g = new char[1];
-		strcpy(g, gender.c_str());
+		getline(aux, barcode, ';');
+		getline(aux, description, ';');
+		getline(aux, price, ';');
+		getline(aux, brand, ';');
+		getline(aux, gender, ';');
+		getline(aux, size, ';');		
 
-		char *s = new char[1];
-		strcpy(s, size.c_str());
-
-		addProduct( make_shared<Clothing>( barcode, description, stod(price), brand, g, s ) );
-
-		delete[] g;
-		delete[] s;
+		addProduct( make_shared<Clothing>( barcode, description, stod(price), brand, gender, size ) );
 	}
 }

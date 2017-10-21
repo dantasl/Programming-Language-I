@@ -9,7 +9,8 @@
 #include <memory>
 #include <iostream>
 #include <fstream>
-#include <cstring>
+#include <sstream>
+#include <numeric>
 
 class Store
 {
