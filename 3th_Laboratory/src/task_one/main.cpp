@@ -42,5 +42,5 @@ int main(int argc, char const *argv[])
 	auto search_two = store.searchProduct("033012017-15");
 	if (search_two != nullptr) cout << endl << "Oops, looks like I was wrong..." << endl << *search_two << endl;
 
-	cout << "That's all, folks! Thanks for testing. =)" << endl;
+	cout << endl << endl << "That's all, folks! Thanks for testing. =)" << endl;
 }

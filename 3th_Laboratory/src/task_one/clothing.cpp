@@ -1,3 +1,11 @@
+/**
+ * @file	clothing.cpp
+ * @brief	Implementing functions described in clothing.h 		    
+ * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since	20/10/2017
+ * @date	21/10/2017
+ */
+
 #include <iomanip>
 #include "task_one/clothing.h"
 
