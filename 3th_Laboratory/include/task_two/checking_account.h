@@ -11,7 +11,7 @@ typedef enum status { special, common } Status;
 class Checking_Account
 {
 	private:
-		unsigned int agency;
+		string agency;
 		string number;
 		Status status;
 		double limit;
@@ -21,9 +21,9 @@ class Checking_Account
 
 	public:
 		Checking_Account();
-		Checking_Account(unsigned int _agency, string _number, Status _status, double _limit);
+		Checking_Account(string _agency, string _number, Status _status, double _limit);
 		~Checking_Account();
-		unsigned int getAgency();
+		string getAgency();
 		Transaction getTransaction();
 		string getNumber();
 		Status getStatus();
@@ -31,7 +31,7 @@ class Checking_Account
 		double getLimit();
 		double getAvailableLimit();
 		void setStatus(Status const _status); //only setter that would make sense were implemented
-		void setBalance(string const _balance);
+		void setBalance(double const _balance);
 		void setLimit(double const _limit);
 		void setAvailableLimit(double const _availableLimit);
 		bool operator== (Checking_Account &c);

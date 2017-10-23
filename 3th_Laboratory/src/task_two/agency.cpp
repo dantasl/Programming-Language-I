@@ -1,7 +1,10 @@
 #include "task_two/agency.h"
 
 Agency::Agency() {}
+Agency::Agency(string number) : agency_number(number) { /* empty */ }
 Agency::~Agency() {}
+
+string Agency::getNumber() { return agency_number; }
 
 void Agency::createAccount() 
 {
@@ -12,7 +15,7 @@ void Agency::createAccount()
 	cout << "Enter the account number (you can write it with dots and hyphens): " << endl;
 	cin >> number;
 	
-	cout << "Enter the the limit for overdraft: " << endl;
+	cout << "Enter the limit for overdraft: " << endl;
 	cin >> overdraft;
 	
 	cout << "You are creating an special or a common account?" << endl;
@@ -81,13 +84,64 @@ void Agency::checkBalance(string const number)
 	cout << "No account with the provided number was found in this agency." << endl;	
 }
 
+void Agency::checkAvailableLimit(string const number)
+{
+	auto account = findAccount(number);
+	if(account != accounts.end())
+	{	
+		cout << "R$" << (**account).getAvailableLimit() << endl;
+		return;
+	}
+	cout << "No account with the provided number was found in this agency." << endl;	
+}
+
 void Agency::cashOut(string const number, double const money)
 {
 	auto account = findAccount(number);
 	if(account != accounts.end())
 	{
 		double cash = (**account).getBalance() - money;
-		if(cash < 0.00 and (cash + (**account).getAvailableLimit()) >= 0.00 ){}
-		//criar a transação caso o user não tenho feito alguma.	
-	}	
+		if(cash < 0.00 and (cash + (**account).getAvailableLimit()) >= 0.00 )
+		{
+			(**account).setBalance(cash);
+			(**account).setAvailableLimit( cash + (**account).getAvailableLimit() );
+			cout << "Cash out performed with success." << endl;
+		}
+		else if (cash < 0.00 and (cash + (**account).getAvailableLimit()) < 0.00 )
+		{
+			cout << "You don't have enough money to perform this action." << endl;
+		}	
+		else
+		{
+			(**account).setBalance(cash);
+			cout << "Cash out performed with success." << endl;
+		}
+		return;		
+	}
+	cout << "No account with the provided number was found in this agency." << endl;	
+}
+
+void Agency::cashIn(string const number, double const money)
+{
+	auto a = findAccount(number);
+	if(a != accounts.end())
+	{
+		(**a).setBalance( (**a).getBalance() + money );
+		if( (**a).getAvailableLimit() < (**a).getLimit() )
+			(**a).setAvailableLimit((**a).getBalance() >= 0 ? (**a).getLimit() : (**a).getBalance());
+		return;
+	}
+	cout << "No account with the provided number was found in this agency." << endl;	
+}
+
+void Agency::transference(string const number, string const other, double money)
+{
+	auto account_one = findAccount(number);
+	auto account_two = findAccount(other);
+	if( account_one != accounts.end() and account_two != accounts.end() )
+	{
+		cashOut(number, money);
+		cashIn(other, money);
+	}
+	cout << "At least one of the provided accounts was not found in this agency." << endl;	
 }

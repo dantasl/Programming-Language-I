@@ -50,7 +50,7 @@ $(OBJ_DIR)/store.o: $(SRC_DIR)/task_one/store.cpp $(INC_DIR)/task_one/store.h
 $(OBJ_DIR)/main.o: $(SRC_DIR)/task_one/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-agency: $(OBJ_DIR)/checking_account.o $(OBJ_DIR)/agency.o $(OBJ_DIR)/transaction.o $(OBJ_DIR)/main2.o
+agency: $(OBJ_DIR)/checking_account.o $(OBJ_DIR)/agency.o $(OBJ_DIR)/transaction.o $(OBJ_DIR)/interface.o $(OBJ_DIR)/main2.o
 	@echo "============="
 	@echo "Connecting the target $@"
 	@echo "============="
@@ -66,6 +66,9 @@ $(OBJ_DIR)/agency.o: $(SRC_DIR)/task_two/agency.cpp $(INC_DIR)/task_two/agency.h
 
 $(OBJ_DIR)/transaction.o: $(SRC_DIR)/task_two/transaction.cpp $(INC_DIR)/task_two/transaction.h
 	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/interface.o : $(SRC_DIR)/task_two/interface.cpp $(INC_DIR)/task_two/interface.h
+	$(CC) -c $(CFLAGS) -o $@ $<	
 
 $(OBJ_DIR)/main2.o: $(SRC_DIR)/task_two/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<	
