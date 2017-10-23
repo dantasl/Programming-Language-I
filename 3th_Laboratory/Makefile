@@ -12,7 +12,7 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 
 .PHONY: all clean distclean doxy
 
-all: store agency
+all: store agency inherit_agency
 
 debug: CFLAGS += -g -O0
 debug: store agency
@@ -71,6 +71,32 @@ $(OBJ_DIR)/interface.o : $(SRC_DIR)/task_two/interface.cpp $(INC_DIR)/task_two/i
 	$(CC) -c $(CFLAGS) -o $@ $<	
 
 $(OBJ_DIR)/main2.o: $(SRC_DIR)/task_two/main.cpp
+	$(CC) -c $(CFLAGS) -o $@ $<	
+
+inherit_agency: $(OBJ_DIR)/transaction2.o $(OBJ_DIR)/account.o $(OBJ_DIR)/checking_account2.o $(OBJ_DIR)/agency2.o $(OBJ_DIR)/interface2.o $(OBJ_DIR)/main3.o
+	@echo "============="
+	@echo "Connecting the target $@"
+	@echo "============="
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
+	@echo "+++ [Executable inherit_agency created in $(BIN_DIR)] +++"
+	@echo "============="
+
+$(OBJ_DIR)/transaction2.o: $(SRC_DIR)/task_three/transaction.cpp $(INC_DIR)/task_three/transaction.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/account.o: $(SRC_DIR)/task_three/account.cpp $(INC_DIR)/task_three/account.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/checking_account2.o: $(SRC_DIR)/task_three/checking_account.cpp $(INC_DIR)/task_three/checking_account.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/agency2.o: $(SRC_DIR)/task_three/agency.cpp $(INC_DIR)/task_three/agency.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/interface2.o: $(SRC_DIR)/task_three/interface.cpp $(INC_DIR)/task_three/interface.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/main3.o: $(SRC_DIR)/task_three/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<	
 
 doxy:
