@@ -67,9 +67,9 @@ void Agency::deleteAccount(string const number)
 			cin >> c;
 		}
 		if(c == 'n') { cout << "Okay, you chose to cancel. " << endl; return; }
-		else { cout << "Okay, you chose to proceed." << endl; accounts.erase(account); return; }
+		else { cout << "Okay, deleting account." << endl; accounts.erase(account); return; }
 	}
-	cout << "No account with the provided number was found in this agency." << endl;		
+	cout << endl << "No account with the provided number was found in this agency." << endl;		
 }
 
 void Agency::checkBalance(string const number)
@@ -80,7 +80,7 @@ void Agency::checkBalance(string const number)
 		cout << endl << "Your current balance is R$" << (**account).getBalance() << endl;
 		return;
 	}
-	cout << "No account with the provided number was found in this agency." << endl;	
+	cout << endl << "No account with the provided number was found in this agency." << endl;	
 }
 
 void Agency::checkAvailableLimit(string const number)
@@ -92,7 +92,7 @@ void Agency::checkAvailableLimit(string const number)
 		cout << "Available limit: R$" << (**account).getAvailableLimit() << endl;
 		return;
 	}
-	cout << "No account with the provided number was found in this agency." << endl;	
+	cout << endl << "No account with the provided number was found in this agency." << endl;	
 }
 
 void Agency::cashOut(string const number, double const money)
@@ -106,6 +106,7 @@ void Agency::cashOut(string const number, double const money)
 			(**account).setBalance(cash);
 			(**account).setAvailableLimit( cash + (**account).getAvailableLimit() );
 			cout << endl << "Cash out performed with success." << endl;
+			(**account).addTransaction( new Transaction("Cash out", money, Style::debit) );
 		}
 		else if (cash < 0.00 and (cash + (**account).getAvailableLimit()) < 0.00 )
 		{
@@ -115,10 +116,11 @@ void Agency::cashOut(string const number, double const money)
 		{
 			(**account).setBalance(cash);
 			cout << endl << "Cash out performed with success." << endl;
+			(**account).addTransaction( new Transaction("Cash out", money, Style::debit) );
 		}
 		return;		
 	}
-	cout << "No account with the provided number was found in this agency." << endl;	
+	cout << endl << "No account with the provided number was found in this agency." << endl;	
 }
 
 void Agency::cashIn(string const number, double const money)
@@ -127,11 +129,12 @@ void Agency::cashIn(string const number, double const money)
 	if(a != accounts.end())
 	{
 		(**a).setBalance( (**a).getBalance() + money );
+		(**a).addTransaction( new Transaction("Cash in", money, Style::credit) );
 		if( (**a).getAvailableLimit() < (**a).getLimit() )
 			(**a).setAvailableLimit((**a).getBalance() >= 0 ? (**a).getLimit() : (**a).getBalance());
 		return;
 	}
-	cout << "No account with the provided number was found in this agency." << endl;	
+	cout << endl << "No account with the provided number was found in this agency." << endl;	
 }
 
 void Agency::transference(string const number, string const other, double money)
@@ -144,4 +147,16 @@ void Agency::transference(string const number, string const other, double money)
 		cashIn(other, money);
 	}
 	cout << endl << "At least one of the provided accounts was not found in this agency." << endl;	
+}
+
+void Agency::printBankStatement(string const number)
+{
+	auto account = findAccount(number);
+	if( account != accounts.end() )
+	{
+		cout << endl << "TRANSACTIONS MADE WITH THIS ACCOUNT" << endl;
+		cout << (**account) << endl;
+		return;
+	}
+	cout << endl << "No account with the provided number was found in this agency." << endl;	
 }

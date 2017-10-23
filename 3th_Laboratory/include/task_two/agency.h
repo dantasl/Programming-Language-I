@@ -29,8 +29,7 @@ class Agency
 		void checkAvailableLimit(string const number); //done
 		void transference(string const number, string const other, double money); //done
 		void checkBalance(string const number); //done
-		void printTransactionHistory();
-
+		void printBankStatement(string const number);
 };
 
 #endif

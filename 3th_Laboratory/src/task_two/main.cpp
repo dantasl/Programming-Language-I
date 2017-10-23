@@ -13,9 +13,9 @@ int main(int argc, char const *argv[])
 		cout << "> 1 - Choose agency" << endl;
 		cout << "> 2 - Leave the program" << endl;
 		cin >> option;
-		while(option < 0 and option > 2)
+		while(option < 0 or option > 2)
 		{
-			cout << "So... your input was invalid. Consider trying again." << endl;
+			cout << endl << "So... your input was invalid. Consider trying again." << endl;
 			cin >> option;
 		}
 		if (option == 2) break;	

@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "transaction.h"
+#include <ostream>
 #include <string>
 
 typedef enum status { special, common } Status;
@@ -16,15 +17,14 @@ class Checking_Account
 		Status status;
 		double limit;
 		double balance;
-		vector<Transaction> transactions;
+		vector<Transaction*> transactions;
 		double available_limit;
 
 	public:
-		Checking_Account();
-		Checking_Account(string _agency, string _number, Status _status, double _limit);
-		~Checking_Account();
-		string getAgency();
-		Transaction getTransaction();
+		Checking_Account(); //done
+		Checking_Account(string _agency, string _number, Status _status, double _limit); //done
+		~Checking_Account(); //done
+		string getAgency(); //done
 		string getNumber();
 		Status getStatus();
 		double getBalance();
@@ -34,7 +34,9 @@ class Checking_Account
 		void setBalance(double const _balance);
 		void setLimit(double const _limit);
 		void setAvailableLimit(double const _availableLimit);
+		void addTransaction(Transaction* t);
 		bool operator== (Checking_Account &c);
+		friend ostream& operator<<(ostream &o, Checking_Account& c);
 
 };
 

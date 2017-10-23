@@ -28,7 +28,7 @@ void create_agency(vector<Agency*> &agency)
 
 void choose_agency(vector<Agency*> &agency)
 {
-	int cont = 0, option;
+	int cont = 0, option = 0;
 
 	if (agency.size() == 0) { cout << endl << "No agencies created yet." << endl; return; }
 	
@@ -40,7 +40,7 @@ void choose_agency(vector<Agency*> &agency)
 
 	cin >> option;
 
-	while(option < 0 and option > (option + 1) )
+	while( option < 0 or (unsigned) option > agency.size() )
 	{
 		cout << endl << "Invalid option. Retry: " << endl;
 		cin >> option;
@@ -68,7 +68,7 @@ void menu_agency(Agency* &agency)
 		cout << "> 0 - Return to the first menu." << endl;
 		cin >> option;
 		
-		while(option < 0 and option > 8)
+		while(option < 0 or option > 8)
 		{
 			cout << endl << "So... your input was invalid. Consider trying again." << endl;
 			cin >> option;
@@ -119,6 +119,9 @@ void operate_agency(Agency* &agency, int option)
 		case 1:
 			agency->createAccount();
 			break;
+		case 2:
+			agency->printBankStatement(number);
+			break;
 		case 3:
 			agency->deleteAccount(number);
 			break;
@@ -143,7 +146,9 @@ void operate_agency(Agency* &agency, int option)
 			cout << endl << "Now, tell which count is receiveing the money. " << endl;
 			number_two = readNumber();
 			agency->transference(number, number_two, money);
-			break;	
+			break;
+		default:
+			break;		
 	}
 
 }

@@ -17,7 +17,11 @@ class Transaction
 
 	public:
 		Transaction();
+		Transaction( string _description, double _money, Style _style );
 		~Transaction();	
+		string getDescription();
+		double getMoney();
+		Style getStyle();
 };
 
 #endif
