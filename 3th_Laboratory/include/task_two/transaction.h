@@ -22,6 +22,9 @@ class Transaction
 		string getDescription();
 		double getMoney();
 		Style getStyle();
+		void setDescription(string const _description);
+		void setMoney(double const _money);
+		void setStyle(Style const _style);
 };
 
 #endif

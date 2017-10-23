@@ -152,4 +152,3 @@ void operate_agency(Agency* &agency, int option)
 	}
 
 }
-

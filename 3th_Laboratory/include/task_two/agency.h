@@ -17,18 +17,18 @@ class Agency
 		string agency_number;
 
 	public:
-		Agency(); //done
+		Agency();
 		Agency(string number);
-		~Agency(); //done
+		~Agency();
 		string getNumber();
-		void createAccount(); //done
-		vector<shared_ptr<Checking_Account>>::iterator findAccount(string const number); //done
-		void deleteAccount(string const number); //done
-		void cashOut(string const number, double const money); //done
-		void cashIn(string const number, double const money); //done
-		void checkAvailableLimit(string const number); //done
-		void transference(string const number, string const other, double money); //done
-		void checkBalance(string const number); //done
+		void createAccount();
+		vector<shared_ptr<Checking_Account>>::iterator findAccount(string const number);
+		void deleteAccount(string const number);
+		void checkBalance(string const number);
+		void checkAvailableLimit(string const number);
+		void cashOut(string const number, double const money);
+		void cashIn(string const number, double const money);		
+		void transference(string const number, string const other, double money);		
 		void printBankStatement(string const number);
 };
 
