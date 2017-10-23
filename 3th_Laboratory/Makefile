@@ -73,7 +73,7 @@ $(OBJ_DIR)/interface.o : $(SRC_DIR)/task_two/interface.cpp $(INC_DIR)/task_two/i
 $(OBJ_DIR)/main2.o: $(SRC_DIR)/task_two/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<	
 
-inherit_agency: $(OBJ_DIR)/transaction2.o $(OBJ_DIR)/account.o $(OBJ_DIR)/checking_account2.o $(OBJ_DIR)/agency2.o $(OBJ_DIR)/interface2.o $(OBJ_DIR)/main3.o
+inherit_agency: $(OBJ_DIR)/transaction2.o $(OBJ_DIR)/account.o $(OBJ_DIR)/checking_account2.o $(OBJ_DIR)/saving_account.o $(OBJ_DIR)/agency2.o $(OBJ_DIR)/interface2.o $(OBJ_DIR)/main3.o
 	@echo "============="
 	@echo "Connecting the target $@"
 	@echo "============="
@@ -88,6 +88,9 @@ $(OBJ_DIR)/account.o: $(SRC_DIR)/task_three/account.cpp $(INC_DIR)/task_three/ac
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(OBJ_DIR)/checking_account2.o: $(SRC_DIR)/task_three/checking_account.cpp $(INC_DIR)/task_three/checking_account.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/saving_account.o: $(SRC_DIR)/task_three/saving_account.cpp $(INC_DIR)/task_three/saving_account.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(OBJ_DIR)/agency2.o: $(SRC_DIR)/task_three/agency.cpp $(INC_DIR)/task_three/agency.h

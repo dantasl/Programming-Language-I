@@ -10,29 +10,43 @@ void Agency::createAccount()
 {
 	string number;
 	double overdraft;
-	int stat;
+	int ac, stat;
+
+	cout << endl << "Would you like to create a saving or a checking account?" << endl;
+	cout << "Saving Account = 0, Checking Account = 1" << endl;
+	cin >> ac;
+	while(ac > 1 or ac < 0)
+	{
+		cout << endl << "Invalid option. Please try again: " << endl;
+		cin >> ac;
+	}	
 	
 	cout << endl << "Enter the account number (you can write it with dots and hyphens): " << endl;
 	cin >> number;
-	
-	cout << endl << "Enter the limit for overdraft: " << endl;
-	cin >> overdraft;
-	
-	cout << endl << "You are creating an special or a common account?" << endl;
-	cout << "Special = 0, Common = 1 " << endl;
-	cin >> stat;
-	while(stat > 1 or stat < 0)
-	{
-		cout << endl << "Invalid option. Please try again: " << endl;
-		cin >> stat;
-	}
-	Status s = stat == 0 ? Status::special : Status::common;	
 
-	auto new_account = make_shared<Checking_Account>(agency_number, number, s, overdraft);
+	auto new_account = make_shared<Saving_Account>(agency_number, number );
+	
+	if(ac == 1)
+	{
+		cout << endl << "Enter the limit for overdraft: " << endl;
+		cin >> overdraft;
+		
+		cout << endl << "You are creating an special or a common account?" << endl;
+		cout << "Special = 0, Common = 1 " << endl;
+		cin >> stat;
+		while(stat > 1 or stat < 0)
+		{
+			cout << endl << "Invalid option. Please try again: " << endl;
+			cin >> stat;
+		}
+		Status s = stat == 0 ? Status::special : Status::common;
+
+		auto new_account = make_shared<Checking_Account>(agency_number, number, s, overdraft);
+	}	
 
 	for(auto i = accounts.begin(); i != accounts.end(); ++i)
 	{
-		if(**i == *new_account) 
+		if( **i == *new_account ) 
 		{ 
 			cout << endl << "Could not create account. Same number already used in this agency." << endl;
 			return;
@@ -42,14 +56,14 @@ void Agency::createAccount()
 	cout << endl << "Account successfully created!" << endl;
 }
 
-vector<shared_ptr<Checking_Account>>::iterator Agency::findAccount(string const number)
+vector<shared_ptr<Account>>::iterator Agency::findAccount(string const number)
 {
 	for (auto i = accounts.begin(); i != accounts.end(); ++i)
 	{
 		if ( (**i).getNumber().compare(number) == 0 )
 			return i;
 	}
-	vector<shared_ptr<Checking_Account>>::iterator i(accounts.end());
+	vector<shared_ptr<Account>>::iterator i(accounts.end());
 	return i;	
 }
 

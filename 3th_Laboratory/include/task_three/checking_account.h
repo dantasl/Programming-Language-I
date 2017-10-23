@@ -3,8 +3,6 @@
 
 #include "account.h"
 
-typedef enum status { special, common } Status;
-
 class Checking_Account : public Account
 {
 	private:

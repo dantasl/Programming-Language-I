@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "checking_account.h"
+#include "saving_account.h"
 #include "transaction.h"
 #include <memory>
 #include <vector>
@@ -13,7 +14,7 @@ using namespace std;
 class Agency
 {
 	private:
-		vector<shared_ptr<Checking_Account>> accounts;
+		vector<shared_ptr<Account>> accounts;
 		string agency_number;
 
 	public:
@@ -22,7 +23,7 @@ class Agency
 		~Agency();
 		string getNumber();
 		void createAccount();
-		vector<shared_ptr<Checking_Account>>::iterator findAccount(string const number);
+		vector<shared_ptr<Account>>::iterator findAccount(string const number);
 		void deleteAccount(string const number);
 		void checkBalance(string const number);
 		void checkAvailableLimit(string const number);

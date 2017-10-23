@@ -3,6 +3,8 @@
 
 using namespace std;
 
+typedef enum status { special, common } Status;
+
 #include <string>
 #include <ostream>
 #include "transaction.h"
@@ -26,6 +28,10 @@ class Account
 		void setBalance(double const _balance);
 		void addTransaction(Transaction* t);
 		bool operator== (Account &c);
+		virtual double getAvailableLimit() = 0;
+		virtual double getLimit() = 0;
+		virtual void setLimit(double const _limit) = 0;
+		virtual void setAvailableLimit(double const _availableLimit) = 0;
 		friend ostream& operator<<(ostream &o, Account const &c);
 
 	private:
