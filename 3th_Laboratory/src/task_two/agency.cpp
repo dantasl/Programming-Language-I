@@ -12,18 +12,18 @@ void Agency::createAccount()
 	double overdraft;
 	int stat;
 	
-	cout << "Enter the account number (you can write it with dots and hyphens): " << endl;
+	cout << endl << "Enter the account number (you can write it with dots and hyphens): " << endl;
 	cin >> number;
 	
-	cout << "Enter the limit for overdraft: " << endl;
+	cout << endl << "Enter the limit for overdraft: " << endl;
 	cin >> overdraft;
 	
-	cout << "You are creating an special or a common account?" << endl;
+	cout << endl << "You are creating an special or a common account?" << endl;
 	cout << "Special = 0, Common = 1 " << endl;
 	cin >> stat;
 	while(stat > 1 or stat < 0)
 	{
-		cout << "Invalid option. Please try again: " << endl;
+		cout << endl << "Invalid option. Please try again: " << endl;
 		cin >> stat;
 	}
 	Status s = stat == 0 ? Status::special : Status::common;	
@@ -34,13 +34,12 @@ void Agency::createAccount()
 	{
 		if(**i == *new_account) 
 		{ 
-			cout << "Could not create account. Same number already used in this agency." << endl;
+			cout << endl << "Could not create account. Same number already used in this agency." << endl;
 			return;
 		}
 	}
-
 	accounts.push_back(new_account);
-	cout << "Account successfully created!" << endl;
+	cout << endl << "Account successfully created!" << endl;
 }
 
 vector<shared_ptr<Checking_Account>>::iterator Agency::findAccount(string const number)
@@ -78,7 +77,7 @@ void Agency::checkBalance(string const number)
 	auto account = findAccount(number);
 	if(account != accounts.end())
 	{
-		cout << "R$" << (**account).getBalance() << endl;
+		cout << endl << "Your current balance is R$" << (**account).getBalance() << endl;
 		return;
 	}
 	cout << "No account with the provided number was found in this agency." << endl;	
@@ -88,8 +87,9 @@ void Agency::checkAvailableLimit(string const number)
 {
 	auto account = findAccount(number);
 	if(account != accounts.end())
-	{	
-		cout << "R$" << (**account).getAvailableLimit() << endl;
+	{
+		cout << endl << "Initial limit: R$" << (**account).getLimit() << endl;	
+		cout << "Available limit: R$" << (**account).getAvailableLimit() << endl;
 		return;
 	}
 	cout << "No account with the provided number was found in this agency." << endl;	
@@ -105,16 +105,16 @@ void Agency::cashOut(string const number, double const money)
 		{
 			(**account).setBalance(cash);
 			(**account).setAvailableLimit( cash + (**account).getAvailableLimit() );
-			cout << "Cash out performed with success." << endl;
+			cout << endl << "Cash out performed with success." << endl;
 		}
 		else if (cash < 0.00 and (cash + (**account).getAvailableLimit()) < 0.00 )
 		{
-			cout << "You don't have enough money to perform this action." << endl;
+			cout << endl << "You don't have enough money to perform this action." << endl;
 		}	
 		else
 		{
 			(**account).setBalance(cash);
-			cout << "Cash out performed with success." << endl;
+			cout << endl << "Cash out performed with success." << endl;
 		}
 		return;		
 	}
@@ -143,5 +143,5 @@ void Agency::transference(string const number, string const other, double money)
 		cashOut(number, money);
 		cashIn(other, money);
 	}
-	cout << "At least one of the provided accounts was not found in this agency." << endl;	
+	cout << endl << "At least one of the provided accounts was not found in this agency." << endl;	
 }

@@ -8,6 +8,10 @@
 void create_agency(vector<Agency*> &agency);
 void choose_agency(vector<Agency*> &agency);
 void menu_agency(Agency* &agency);
+void operate_agency(Agency* &agency, int option);
+string readNumber();
+double getMoney();
+
 
 
 #endif

@@ -7,7 +7,7 @@ int main(int argc, char const *argv[])
 	int option = 0;
 	while (option != 2)
 	{	
-		cout << "============================= MENU =============================" << endl;
+		cout << endl << endl <<"============================= MENU =============================" << endl;
 		cout << ">> Welcome to MyBank. First, choose/create an agency: " << endl;
 		cout << "> 0 - Create agency" << endl;
 		cout << "> 1 - Choose agency" << endl;
@@ -21,5 +21,5 @@ int main(int argc, char const *argv[])
 		if (option == 2) break;	
 		option == 0 ? create_agency(agency) : choose_agency(agency);
 	}
-	cout << "Thanks for using this code. Enjoy the rest of your life." << endl;	
+	cout << endl << "Thanks for using this code. Enjoy the rest of your life." << endl;	
 }
