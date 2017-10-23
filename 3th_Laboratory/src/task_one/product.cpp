@@ -1,3 +1,11 @@
+/**
+ * @file	product.cpp
+ * @brief	Implementing functions described in product.h 		    
+ * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since	20/10/2017
+ * @date	21/10/2017
+ */
+
 #include "task_one/product.h"
 
 Product::Product() {}

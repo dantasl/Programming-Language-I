@@ -26,6 +26,11 @@ void Account::addTransaction(Transaction* t)
 	transactions.push_back(t);
 }
 
+ostream& operator<< (ostream &o, Account const &c) 
+{
+	return c.print(o);
+}
+
 bool Account::operator== (Account &c)
 {
 	return this->number.compare( c.getNumber() ) == 0;

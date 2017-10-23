@@ -1,3 +1,11 @@
+/**
+ * @file	store.cpp
+ * @brief	Implementing functions described in store.h 		    
+ * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since	20/10/2017
+ * @date	21/10/2017
+ */
+
 #include "task_one/store.h"
 
 Store::Store() {}

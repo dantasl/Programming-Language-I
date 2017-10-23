@@ -28,10 +28,10 @@ class Account
 		void setBalance(double const _balance);
 		void addTransaction(Transaction* t);
 		bool operator== (Account &c);
-		virtual double getAvailableLimit() = 0;
-		virtual double getLimit() = 0;
-		virtual void setLimit(double const _limit) = 0;
-		virtual void setAvailableLimit(double const _availableLimit) = 0;
+		virtual double getAvailableLimit() { return 0.00; }
+		virtual double getLimit() { return 0.00; }
+		virtual void setLimit(double const _limit) {}
+		virtual void setAvailableLimit(double const _availableLimit) {}
 		friend ostream& operator<<(ostream &o, Account const &c);
 
 	private:

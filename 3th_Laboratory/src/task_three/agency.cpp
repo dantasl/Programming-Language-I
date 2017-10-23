@@ -169,7 +169,7 @@ void Agency::printBankStatement(string const number)
 	if( account != accounts.end() )
 	{
 		cout << endl << "TRANSACTIONS MADE WITH THIS ACCOUNT" << endl;
-		//(**account).print();
+		cout << (**account) << endl;
 		return;
 	}
 	cout << endl << "No account with the provided number was found in this agency." << endl;
