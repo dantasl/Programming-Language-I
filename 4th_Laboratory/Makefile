@@ -24,7 +24,7 @@ init:
 	@mkdir -p $(SRC_DIR)/
 	@mkdir -p $(DOC_DIR)/
 
-check_palindrome: $(OBJ_DIR)/stack.o
+check_palindrome: $(OBJ_DIR)/string_manipulation.o $(OBJ_DIR)/check_palindrome.o
 	@echo "============="
 	@echo "Connecting the target $@"
 	@echo "============="
@@ -32,7 +32,10 @@ check_palindrome: $(OBJ_DIR)/stack.o
 	@echo "+++ [Executable check_palindrome created in $(BIN_DIR)] +++"
 	@echo "============="
 
-$(OBJ_DIR)/stack.o: $(SRC_DIR)/task_one/stack.cpp $(INC_DIR)/task_one/stack.h
+$(OBJ_DIR)/string_manipulation.o: $(SRC_DIR)/task_one/string_manipulation.cpp $(INC_DIR)/task_one/string_manipulation.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/check_palindrome.o: $(SRC_DIR)/task_one/check_palindrome.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 doxy:
