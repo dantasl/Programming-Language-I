@@ -1,3 +1,11 @@
+/**
+ * @file	main.cpp
+ * @brief	Receiving user's first choices and forwarding them to interface.cpp 		    
+ * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since	20/10/2017
+ * @date	21/10/2017
+ */
+
 #include "task_two/agency.h"
 #include "task_two/interface.h"
 

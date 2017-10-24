@@ -1,3 +1,11 @@
+/**
+ * @file	agency.cpp
+ * @brief	Implementing functions described in agency.h 		    
+ * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since	20/10/2017
+ * @date	21/10/2017
+ */
+
 #include "task_two/agency.h"
 
 Agency::Agency() {}
