@@ -60,7 +60,7 @@ namespace sc
 			 * increments m_size.
 			 * @param v New element to be added on this stack.  
 			 */						
-			void push (const reference v )
+			void push (const value_type v )
 			{
 				if( full() )
 					throw std::out_of_range("Cannot add new elements, stack is currently full." );
