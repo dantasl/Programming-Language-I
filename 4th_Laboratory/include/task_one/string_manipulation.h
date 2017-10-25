@@ -9,6 +9,7 @@
 
 using namespace std;
 
-void remove_blank_space(string&);
+void remove_blank_space_punct_char(string&);
+void remove_special_characters(string& s);
 
 #endif
