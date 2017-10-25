@@ -1,13 +1,22 @@
+/**
+ * @file    string_manipulation.cpp
+ * @brief   Implementing functions described in string_manipulation.h
+ * @author  Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since   24/10/2017
+ * @date    25/10/2017
+ */
+
 #include "task_one/string_manipulation.h"
 
 void remove_blank_space_punct_char(string& s)
 {
-	for(auto i(0u); i < s.size();) //iterates over the string
+	for(auto i(0u); i < s.size();)
 	{
-		if( isblank( s[i] ) or ispunct( s[i] ) ) //checks if the char is a blank space
+		//Checks if the char is a blank space or punctuation
+		if( isblank( s[i] ) or ispunct( s[i] ) )
 			s.erase(i, 1); //erase 1 char at position i
 		else
-			++i; //only increments i if string is not a blank space
+			++i; //only increments i if string is not a blank space or punctuation
 	}
 }
 
@@ -46,11 +55,12 @@ bool check_palindrome(string& s)
 {
 	sc::stack<char> myStack( s.size() );
 	
-	//stack first half
+	//stack first half of string
 	auto mid = s.size() % 2 == 0 ? s.size() / 2 : (s.size() / 2) + 1;
 	for( auto i(0u); i < mid; ++ i)
 		myStack.push( s[i] );
 
+	//iterates over the remaining half checking for matching values at top
 	for( auto i = s.size() % 2 == 0 ? mid : mid - 1; i < s.size(); ++i)
 	{
 		if( s[i] == myStack.top() )

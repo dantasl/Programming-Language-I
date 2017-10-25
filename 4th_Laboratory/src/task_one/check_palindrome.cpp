@@ -1,3 +1,13 @@
+/**
+ * @file    check_palindrome.cpp
+ * @brief   Main function that shows brief dialog with user and receives
+ * 			his input. Calls string manipulations functions and informs
+ *			at the end if the string is palindrome or not.
+ * @author  Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since   24/10/2017
+ * @date    25/10/2017
+ */
+
 #include "task_one/string_manipulation.h"
 #include "task_one/stack.h"
 

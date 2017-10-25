@@ -1,3 +1,11 @@
+/**
+ * @file    stack.h
+ * @brief   Implementing a simple ADT stack.
+ * @author  Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since   24/10/2017
+ * @date    25/10/2017
+ */
+
 #ifndef _STACK_H_
 #define _STACK_H_
 
