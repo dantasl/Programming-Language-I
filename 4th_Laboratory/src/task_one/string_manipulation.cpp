@@ -41,3 +41,21 @@ void remove_special_characters(string& s)
 		}	
 	}
 }
+
+bool check_palindrome(string& s)
+{
+	sc::stack<char> myStack( s.size() );
+	
+	//stack first half
+	auto mid = s.size() % 2 == 0 ? s.size() / 2 : (s.size() / 2) + 1;
+	for( auto i(0u); i < mid; ++ i)
+		myStack.push( s[i] );
+
+	for( auto i = s.size() % 2 == 0 ? mid : mid - 1; i < s.size(); ++i)
+	{
+		if( s[i] == myStack.top() )
+			myStack.pop();	
+	}
+
+	return myStack.size() == 0;
+}

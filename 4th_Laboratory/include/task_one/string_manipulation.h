@@ -6,10 +6,12 @@
 #include <string>
 #include <iterator>
 #include <cctype>
+#include "task_one/stack.h"
 
 using namespace std;
 
 void remove_blank_space_punct_char(string&);
-void remove_special_characters(string& s);
+void remove_special_characters(string&);
+bool check_palindrome(string&);
 
 #endif
