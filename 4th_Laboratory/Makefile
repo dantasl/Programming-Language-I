@@ -12,10 +12,10 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 
 .PHONY: all clean distclean doxy
 
-all: check_palindrome
+all: check_palindrome evaluate_expression
 
 debug: CFLAGS += -g -O0
-debug: check_palindrome
+debug: check_palindrome evaluate_expression
 
 init:
 	@mkdir -p $(BIN_DIR)/
@@ -38,6 +38,17 @@ $(OBJ_DIR)/string_manipulation.o: $(SRC_DIR)/task_one/string_manipulation.cpp $(
 $(OBJ_DIR)/check_palindrome.o: $(SRC_DIR)/task_one/check_palindrome.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
+evaluate_expression: $(OBJ_DIR)/arithmetic_manipulation.o
+	@echo "============="
+	@echo "Connecting the target $@"
+	@echo "============="
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
+	@echo "+++ [Executable evaluate_expression created in $(BIN_DIR)] +++"
+	@echo "============="
+
+$(OBJ_DIR)/arithmetic_manipulation.o: $(SRC_DIR)/task_two/arithmetic_manipulation.cpp $(INC_DIR)/task_two/arithmetic_manipulation.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+	
 doxy:
 	$(RM) $(DOC_DIR)/*
 	doxygen Doxyfile
