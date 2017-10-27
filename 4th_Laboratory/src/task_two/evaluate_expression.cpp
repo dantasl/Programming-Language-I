@@ -1,3 +1,13 @@
+/**
+ * @file    evaluate_expression.cpp
+ * @brief   Main function that shows brief dialog with user and receives
+ * 			his input. Calls arithmetic manipulations functions and informs
+ *			at the end the result of the given postfix expression.
+ * @author  Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since   26/10/2017
+ * @date    27/10/2017
+ */
+
 #include "task_two/arithmetic_manipulation.h"
 
 int main(int argc, char const *argv[])

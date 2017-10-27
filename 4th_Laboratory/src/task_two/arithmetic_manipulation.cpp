@@ -1,3 +1,11 @@
+/**
+ * @file    arithmetic_manipulation.cpp
+ * @brief   Implementing functions described in arithmetic_manipulation.h
+ * @author  Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since   26/10/2017
+ * @date    27/10/2017
+ */
+
 #include "task_two/arithmetic_manipulation.h"
 
 bool is_operator ( const string& s )
@@ -58,7 +66,7 @@ vector<string> split_sentence_blank_spaces( const string &to_split )
 	auto begin( to_split.begin() );
 	auto end( to_split.begin() );
 	vector<string> splitted;
-	for(; end != to_split.end(); ++ end)
+	for(; end != to_split.end(); ++end)
 	{
 		if( isblank( *end ) )
 		{
@@ -66,6 +74,6 @@ vector<string> split_sentence_blank_spaces( const string &to_split )
 			begin = end + 1;			
 		}	
 	}
-	splitted.push_back( make_string(begin, end) ); //last value wont be pushed onless you do this
+	splitted.push_back( make_string(begin, end) ); //last value wont be pushed unless you do this
 	return splitted;
 }
