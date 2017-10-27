@@ -1,88 +1,71 @@
 #include "task_two/arithmetic_manipulation.h"
 
-bool is_scope ( char c )
+bool is_operator ( const string& s )
 {
-	return c == '(' or c == ')';
+	for( auto i(s.begin()); i != s.end(); ++i )
+	{
+		if ( not ( *i >= '0' and *i <= '9' ) )
+			return false;
+	}
+	return true;	
 }
 
-bool is_operand ( char c )
+bool is_operand ( const string& s )
 {
-	return string("+-*/%^").find(c) != string::npos;
+	return string("+-*/%^").find( *(s.begin()) ) != string::npos;
 }
 
-bool is_operator ( char c )
-{
-	return c >= '0' and c <= '9';
-}
-
-long int char2integer ( int begin, int end, string s )
-{
-	string copy("");
-	for( auto i(begin); i <= end; ++i )
-		copy += s[i];
-	return stol(copy);
-}
-
-long int execute_operator( long int term1, long int term2, char operation )
+long int execute_operator( long int term1, long int term2, const string& operation )
 {
     long int result;
-    switch( operation )
+    switch( operation[0] )
     {
         case '+': result = term1 + term2; break;
         case '-': result = term1 - term2; break;
         case '*': result = term1 * term2; break;
         case '^': result = pow(term1, term2); break;
-        case '/': if ( term2 == 0 ) throw std::runtime_error("Dude, don try to divide stuff by 0.");
+        case '/': if ( term2 == 0 ) throw std::runtime_error("Cannot make division by 0.");
                   result = term1 / term2;
                   break;
-        case '%': if ( term2 == 0 ) throw std::runtime_error("Dude, don try to divide stuff by 0.");
+        case '%': if ( term2 == 0 ) throw std::runtime_error("Cannot make division by 0.");
                   result = term1 % term2;
                   break;
     }
-    cout << "Da result: " << result << endl;
     return result;
 }
 
-
-//consideramos que um espaço está dividindo um operador de outro
-string postfix_to_infix ( string postfix )
+long int compute_expression( vector<string>& postfix )
 {
 	sc::stack<long int> myStack( postfix.size() );
-	auto begin(0u);
-	auto end(0u);
-
-	myStack.push(0);
-
-	while ( end != postfix.size() )
+	for( auto i(postfix.begin()); i != postfix.end(); ++i )
 	{
-		if( isblank( postfix[end] ) )
+		if ( is_operator( *i ) )
 		{
-			if( is_operator( postfix[ end - 1 ] ) and is_operator( postfix[ begin ] ) )
-			{
-				myStack.push( char2integer(begin, end, postfix) );
-				begin = end + 1;
-			}
-			else if( is_operand( postfix[ end - 1 ] ) )	
-			{
-				auto term2 = myStack.top(); myStack.pop();
-				auto term1 = myStack.top(); myStack.pop();
-				myStack.push( execute_operator( term1, term2, postfix[ end - 1 ] ) );
-				begin = end + 1;
-			}	
+			myStack.push( stol(*i) );
 		}
-		++end;
+		else if ( is_operand( *i ) )
+		{
+			auto term2 = myStack.top(); myStack.pop();
+			auto term1 = myStack.top(); myStack.pop();
+			myStack.push( execute_operator(term1, term2, *i) );
+		}	
 	}
-
-	cout << myStack.top() << endl;
-
-	return postfix;
+	return myStack.top();	
 }
 
-int main()
+vector<string> split_sentence_blank_spaces( const string &to_split )
 {
-	string s;
-	cout << "Type me something: " << endl;
-	getline(cin, s);
-	postfix_to_infix(s);
-	return 0;
+	auto begin( to_split.begin() );
+	auto end( to_split.begin() );
+	vector<string> splitted;
+	for(; end != to_split.end(); ++ end)
+	{
+		if( isblank( *end ) )
+		{
+			splitted.push_back( make_string(begin, end) );
+			begin = end + 1;			
+		}	
+	}
+	splitted.push_back( make_string(begin, end) ); //last value wont be pushed onless you do this
+	return splitted;
 }
