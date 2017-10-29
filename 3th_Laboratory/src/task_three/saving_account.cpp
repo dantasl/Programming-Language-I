@@ -21,7 +21,7 @@ ostream& Saving_Account::print(ostream &o) const
 	{
 		string style = (**i).getStyle() == Style::debit ? "Debit " : "Credit ";
 		o 	<< (**i).getDescription() << " - R$" << (**i).getMoney() << "   Operation: " << style
-			<< " New Balance: R$" << endl;
+			<< " New Balance: R$" << balance << endl;
 	}
 	return o;
 }
