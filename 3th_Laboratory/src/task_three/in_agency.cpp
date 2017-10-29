@@ -1,12 +1,12 @@
 /**
- * @file	agency.cpp
+ * @file	in_agency.cpp
  * @brief	Implementing functions described in agency.h 		    
  * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
  * @since	20/10/2017
  * @date	21/10/2017
  */
 
-#include "task_three/agency.h"
+#include "task_three/in_agency.h"
 
 Agency::Agency() {}
 Agency::Agency(string number) : agency_number(number) { /* empty */ }

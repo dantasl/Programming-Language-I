@@ -1,12 +1,12 @@
 /**
- * @file	checking_account.cpp
+ * @file	in_checking_account.cpp
  * @brief	Implementing functions described in checking_account.h 		    
  * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
  * @since	20/10/2017
  * @date	21/10/2017
  */
 
-#include "task_three/checking_account.h"
+#include "task_three/in_checking_account.h"
 #include <iostream>
 
 Checking_Account::Checking_Account() {}

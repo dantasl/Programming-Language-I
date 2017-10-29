@@ -1,5 +1,5 @@
 /**
- * @file	main.cpp
+ * @file	store_main.cpp
  * @brief	Driver code for testing class Product and its implementations. 		    
  * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
  * @since	20/10/2017

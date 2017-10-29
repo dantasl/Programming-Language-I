@@ -1,12 +1,12 @@
 /**
- * @file	transaction.cpp
+ * @file	in_transaction.cpp
  * @brief	Implementing functions described in transaction.h 		    
  * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
  * @since	20/10/2017
  * @date	21/10/2017
  */
 
-#include "task_three/transaction.h"
+#include "task_three/in_transaction.h"
 
 Transaction::Transaction() {}
 Transaction::Transaction(string _description, double _money, Style _style)

@@ -1,5 +1,5 @@
 /**
- * @file	interface.h
+ * @file	in_interface.h
  * @brief	This set of functions shall act as an interface between user,
  *			class Account and its implementations.   
  * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
@@ -10,9 +10,9 @@
 #ifndef _INTERFACE_H_
 #define _INTERFACE_H_
 
-#include "agency.h"
-#include "checking_account.h"
-#include "transaction.h"
+#include "in_agency.h"
+#include "in_checking_account.h"
+#include "in_transaction.h"
 
 /**
  * @brief This function receives a vector of type agency, asks and treats the necessary

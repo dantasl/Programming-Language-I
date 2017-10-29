@@ -1,5 +1,5 @@
 /**
- * @file	agency.h
+ * @file	in_agency.h
  * @brief	Creating class Agency, responsable for managing Account operations. 		    
  * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
  * @since	20/10/2017
@@ -11,9 +11,9 @@
 
 using namespace std;
 
-#include "checking_account.h"
-#include "saving_account.h"
-#include "transaction.h"
+#include "in_checking_account.h"
+#include "in_saving_account.h"
+#include "in_transaction.h"
 #include <memory>
 #include <vector>
 #include <iostream>

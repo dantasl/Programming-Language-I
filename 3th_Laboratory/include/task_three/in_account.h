@@ -1,5 +1,5 @@
 /**
- * @file	account.h
+ * @file	in_account.h
  * @brief	Creating and defining prototypes for superclass Account. 		    
  * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
  * @since	20/10/2017
@@ -16,7 +16,7 @@ typedef enum status { special, common } Status;
 #include <string>
 #include <ostream>
 #include <iostream>
-#include "transaction.h"
+#include "in_transaction.h"
 
 class Account
 {

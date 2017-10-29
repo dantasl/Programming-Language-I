@@ -1,5 +1,5 @@
 /**
- * @file	transaction.h
+ * @file	in_transaction.h
  * @brief	Creating class Transaction, responsable for identifying cash in and cash out
  *			operations, besides keeping an historic of them. 		    
  * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)

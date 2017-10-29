@@ -47,7 +47,7 @@ $(OBJ_DIR)/clothing.o: $(SRC_DIR)/task_one/clothing.cpp $(INC_DIR)/task_one/clot
 $(OBJ_DIR)/store.o: $(SRC_DIR)/task_one/store.cpp $(INC_DIR)/task_one/store.h
 	$(CC) -c $(CFLAGS) -o $@ $<		
 
-$(OBJ_DIR)/main.o: $(SRC_DIR)/task_one/main.cpp
+$(OBJ_DIR)/main.o: $(SRC_DIR)/task_one/store_main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 agency: $(OBJ_DIR)/checking_account.o $(OBJ_DIR)/agency.o $(OBJ_DIR)/transaction.o $(OBJ_DIR)/interface.o $(OBJ_DIR)/main2.o
@@ -81,25 +81,25 @@ inherit_agency: $(OBJ_DIR)/transaction2.o $(OBJ_DIR)/account.o $(OBJ_DIR)/checki
 	@echo "+++ [Executable inherit_agency created in $(BIN_DIR)] +++"
 	@echo "============="
 
-$(OBJ_DIR)/transaction2.o: $(SRC_DIR)/task_three/transaction.cpp $(INC_DIR)/task_three/transaction.h
+$(OBJ_DIR)/transaction2.o: $(SRC_DIR)/task_three/in_transaction.cpp $(INC_DIR)/task_three/in_transaction.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(OBJ_DIR)/account.o: $(SRC_DIR)/task_three/account.cpp $(INC_DIR)/task_three/account.h
+$(OBJ_DIR)/account.o: $(SRC_DIR)/task_three/in_account.cpp $(INC_DIR)/task_three/in_account.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(OBJ_DIR)/checking_account2.o: $(SRC_DIR)/task_three/checking_account.cpp $(INC_DIR)/task_three/checking_account.h
+$(OBJ_DIR)/checking_account2.o: $(SRC_DIR)/task_three/in_checking_account.cpp $(INC_DIR)/task_three/in_checking_account.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(OBJ_DIR)/saving_account.o: $(SRC_DIR)/task_three/saving_account.cpp $(INC_DIR)/task_three/saving_account.h
+$(OBJ_DIR)/saving_account.o: $(SRC_DIR)/task_three/in_saving_account.cpp $(INC_DIR)/task_three/in_saving_account.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(OBJ_DIR)/agency2.o: $(SRC_DIR)/task_three/agency.cpp $(INC_DIR)/task_three/agency.h
+$(OBJ_DIR)/agency2.o: $(SRC_DIR)/task_three/in_agency.cpp $(INC_DIR)/task_three/in_agency.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(OBJ_DIR)/interface2.o: $(SRC_DIR)/task_three/interface.cpp $(INC_DIR)/task_three/interface.h
+$(OBJ_DIR)/interface2.o: $(SRC_DIR)/task_three/in_interface.cpp $(INC_DIR)/task_three/in_interface.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(OBJ_DIR)/main3.o: $(SRC_DIR)/task_three/main.cpp
+$(OBJ_DIR)/main3.o: $(SRC_DIR)/task_three/in_main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<	
 
 doxy:

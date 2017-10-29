@@ -1,5 +1,5 @@
 /**
- * @file	checking_account.h
+ * @file	in_checking_account.h
  * @brief	Creating and defining prototypes for subclass Checking_Account from
  *			superclass Account. 		    
  * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
@@ -10,7 +10,7 @@
 #ifndef _CHECKING_ACCOUNT_H_
 #define _CHECKING_ACCOUNT_H_
 
-#include "account.h"
+#include "in_account.h"
 
 class Checking_Account : public Account
 {
