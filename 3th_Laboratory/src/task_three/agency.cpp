@@ -1,3 +1,11 @@
+/**
+ * @file	agency.cpp
+ * @brief	Implementing functions described in agency.h 		    
+ * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since	20/10/2017
+ * @date	21/10/2017
+ */
+
 #include "task_three/agency.h"
 
 Agency::Agency() {}
@@ -5,6 +13,20 @@ Agency::Agency(string number) : agency_number(number) { /* empty */ }
 Agency::~Agency() {}
 
 string Agency::getNumber() { return agency_number; }
+
+void Agency::addAccount(const shared_ptr<Account> &a)
+{
+	for(auto i = accounts.begin(); i != accounts.end(); ++i)
+	{
+		if( **i == *a ) 
+		{ 
+			cerr << endl << "Could not create account. Same number already used in this agency." << endl;
+			return;
+		}
+	}
+	accounts.push_back(a);
+	cout << endl << "Account successfully created!" << endl;
+}
 
 void Agency::createAccount() 
 {
@@ -23,8 +45,6 @@ void Agency::createAccount()
 	
 	cout << endl << "Enter the account number (you can write it with dots and hyphens): " << endl;
 	cin >> number;
-
-	auto new_account = make_shared<Saving_Account>(agency_number, number );
 	
 	if(ac == 1)
 	{
@@ -40,20 +60,12 @@ void Agency::createAccount()
 			cin >> stat;
 		}
 		Status s = stat == 0 ? Status::special : Status::common;
-
-		auto new_account = make_shared<Checking_Account>(agency_number, number, s, overdraft);
-	}	
-
-	for(auto i = accounts.begin(); i != accounts.end(); ++i)
+		addAccount( make_shared<Checking_Account>(agency_number, number, s, overdraft) );
+	} 
+	else
 	{
-		if( **i == *new_account ) 
-		{ 
-			cout << endl << "Could not create account. Same number already used in this agency." << endl;
-			return;
-		}
+		addAccount( make_shared<Saving_Account>(agency_number, number) );
 	}
-	accounts.push_back(new_account);
-	cout << endl << "Account successfully created!" << endl;
 }
 
 vector<shared_ptr<Account>>::iterator Agency::findAccount(string const number)
@@ -159,6 +171,7 @@ void Agency::transference(string const number, string const other, double money)
 	{
 		cashOut(number, money);
 		cashIn(other, money);
+		return;
 	}
 	cout << endl << "At least one of the provided accounts was not found in this agency." << endl;	
 }

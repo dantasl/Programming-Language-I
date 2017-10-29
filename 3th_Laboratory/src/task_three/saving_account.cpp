@@ -1,3 +1,11 @@
+/**
+ * @file	saving_account.cpp
+ * @brief	Implementing functions described in saving_account.cpp 		    
+ * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since	20/10/2017
+ * @date	21/10/2017
+ */
+
 #include "task_three/saving_account.h"
 
 Saving_Account::Saving_Account() {}

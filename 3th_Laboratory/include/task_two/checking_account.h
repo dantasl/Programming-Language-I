@@ -121,6 +121,13 @@ class Checking_Account
 		 * @return false Otherwise.
 		 */	
 		bool operator== (Checking_Account &c);
+
+		/**
+		 * @brief Overloading insertion operator. 
+		 *		  Prints all attributes from this class.
+		 * @param o Insertion streamer.
+		 * @param c Object that will have its attributes printed.
+		 */
 		friend ostream& operator<<(ostream &o, Checking_Account& c);
 };
 

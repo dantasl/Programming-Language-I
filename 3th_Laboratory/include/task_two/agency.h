@@ -106,7 +106,7 @@ class Agency
 		void cashIn(string const number, double const money);
 
 		/**
-		 * @brief This function performs two main actions: withdrawl money from an Checking_Account object
+		 * @brief This function performs two main actions: withdrawl money from a Checking_Account object
 		 * 		  and cash in money in another Checking_Account object. All steps and procedures to
 		 *		  perform this actions are already implemented in function cashOut() and cashIn().
 		 * @param number String containing number of the account that is making the transference.

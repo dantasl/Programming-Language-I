@@ -153,6 +153,7 @@ void Agency::transference(string const number, string const other, double money)
 	{
 		cashOut(number, money);
 		cashIn(other, money);
+		return;
 	}
 	cout << endl << "At least one of the provided accounts was not found in this agency." << endl;	
 }

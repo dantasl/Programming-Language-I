@@ -1,3 +1,11 @@
+/**
+ * @file	interface.cpp
+ * @brief	Implementing functions described in interface.h 		    
+ * @author	Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since	20/10/2017
+ * @date	21/10/2017
+ */
+
 #include "task_two/interface.h"
 
 void create_agency(vector<Agency*> &agency)
@@ -150,5 +158,4 @@ void operate_agency(Agency* &agency, int option)
 		default:
 			break;		
 	}
-
 }
