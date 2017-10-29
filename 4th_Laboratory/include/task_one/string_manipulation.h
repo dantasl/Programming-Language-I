@@ -40,7 +40,7 @@ void remove_special_characters(string&);
  * A string will be called palindrome if ather this procedure the stack's size is 0.
  * @param string& The sentence in which the checking will be made.
  * @return true If palindrome.
- @ return false Otherwise. 
+ * @return false Otherwise. 
  */
 bool check_palindrome(string&);
 

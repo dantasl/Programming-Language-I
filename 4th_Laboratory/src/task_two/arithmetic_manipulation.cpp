@@ -61,6 +61,29 @@ long int compute_expression( vector<string>& postfix )
 	return myStack.top();	
 }
 
+string postfix_to_infix( const vector<string>& postfix )
+{
+	sc::stack<string> myStack( postfix.size() );
+	for( auto i(postfix.begin()); i != postfix.end(); ++i )
+	{
+		if( is_operator( *i ) )
+		{
+			myStack.push( *i );
+		}
+		else if ( is_operand( *i ) )
+		{
+			string infix("");
+			auto term2 = myStack.top(); myStack.pop();
+			auto term1 = myStack.top(); myStack.pop();
+			if ( i + 1 == postfix.end() )
+				myStack.push( infix += term1 + " " + *i + " " + term2 );
+			else
+				myStack.push( infix += "(" + term1 + " " + *i + " " + term2 + ")" );		
+		}	
+	}
+	return myStack.top();	
+}
+
 vector<string> split_sentence_blank_spaces( const string &to_split )
 {
 	auto begin( to_split.begin() );

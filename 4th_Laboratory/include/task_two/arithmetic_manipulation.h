@@ -56,7 +56,7 @@ long int execute_operator( long int, long int, const string& );
  * calls execute_operator() and then stores the result back on the stack again.
  * At the end of iterations, return the stack's top, where the final result of
  * postfix equation is stored.
- * @param long vector<string>& Vector containing all the terms of the equation.
+ * @param vector<string>& Vector containing all the terms of the equation.
  * @return Final result of the postfix equation.
  */
 long int compute_expression( vector<string>& );
@@ -84,5 +84,18 @@ string make_string (T begin, T end)
  * @return A vector where each split is at one different index.
  */
 vector<string> split_sentence_blank_spaces( const string& );
+
+/**
+ * @brief This function receives an expression written in postfix form and converts it
+ * to infix. It checks if the term is an operand or an operator.
+ * If operator, push the term to the stack. If operand, pops the stack twice,
+ * concatenates terms on same string and then stores the result back on the stack again.
+ * At the end of iterations, return the stack's top, where the final result of
+ * conversion is stored. I am well aware that this function could be easily integrated with
+ * compute_expression(), but I'm thinking of future reuses of this piece of code.
+ * @param vector<string>& Vector containing all the terms of the equation.
+ * @return Final result of the conversion.
+ */
+string postfix_to_infix( const vector<string>& );
 
 #endif

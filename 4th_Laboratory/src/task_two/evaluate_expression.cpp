@@ -32,7 +32,9 @@ int main(int argc, char const *argv[])
 
 	// Informing the user of his expression's result.
 	// ========================================================================================
-	cout << endl <<  "And the result is: " << compute_expression(postfix) << endl;
+	cout << endl;
+	cout << "Result: " << compute_expression(postfix) << " Infix: " << postfix_to_infix(postfix);
+	cout << endl;
 	// ========================================================================================
 
 	cout << "===========================================================================" << endl << endl;
