@@ -13,6 +13,8 @@ using std::set;
 
 int main(int argc, char const *argv[])
 {
+	// Inserting values to a set of integers
+	// ========================================================================================
 	set<int> numeros;
 	numeros.insert(3);
 	numeros.insert(1);
@@ -20,8 +22,14 @@ int main(int argc, char const *argv[])
 	numeros.insert(1);
 	numeros.insert(2);
 	numeros.insert(5);
+	// ========================================================================================
+
+	// Calling print_elements with different params
+	// ========================================================================================
 	print_elements(numeros, "Set: ");
 	print_elements(numeros, "CSV Set: ", ';');
 	print_elements(numeros, "Non-sense set: ", '@');
+	// ========================================================================================
+	
 	return 0;
 }
