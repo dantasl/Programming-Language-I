@@ -1,9 +1,15 @@
+/**
+ * @file    show_primes.cpp
+ * @brief   Receives and treats user's params, converting them to a number and calling
+ 			show_primes() function.
+ * @author  Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since   05/11/2017
+ * @date    05/11/2017
+ */
+
 #include "task_three/show_primes.h"
 
-#include <iostream>
-#include <vector>
 #include <sstream>
-#include <algorithm>
 
 int main(int argc, char const **argv)
 {
@@ -16,30 +22,12 @@ int main(int argc, char const **argv)
 	}
 	// ========================================================================================
 
-	// Treating user's param and creating a vector filled with numbers in param's range.
+	// Treating user's param and calling show_primes function.
 	// ========================================================================================
 	std::stringstream size;
 	size << *(argv + 1);	
 	unsigned int i_size;
 	size >> i_size;
-	std::vector<int> numbers ( i_size );
-	std::iota( numbers.begin(), numbers.end(), 1 );
-	// ========================================================================================
-
-	// Using find_if with functor isPrime to print all prime numbers in range.
-	// ========================================================================================
-	auto curr_prime_number = std::begin(numbers);
-	std::cout << "Numeros primos [1-" << i_size << "]: ";
-	while( curr_prime_number < std::end(numbers) )
-	{
-		curr_prime_number = std::find_if (curr_prime_number, numbers.end(), isPrime());
-	    // In case find_if can't find any prime number, the return will be an iterator pointing
-		// to numbers.end(). Since we do not want to print any possible garbage, we must check
-		// this possibility.
-		if( curr_prime_number < numbers.end() )
-			std::cout << *curr_prime_number << " ";
-		++curr_prime_number;
-	}
-	std::cout << std::endl;
+	show_primes(i_size);
 	// ========================================================================================	
 }
