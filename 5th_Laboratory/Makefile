@@ -12,10 +12,10 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 
 .PHONY: all clean distclean doxy
 
-all: closest_to_mean print_elements show_primos
+all: closest_to_mean print_elements show_primos task_four
 
 debug: CFLAGS += -g -O0
-debug: closest_to_mean print_elements show_primos
+debug: closest_to_mean print_elements show_primos task_four
 
 init:
 	@mkdir -p $(BIN_DIR)/
@@ -55,7 +55,18 @@ show_primos: $(OBJ_DIR)/show_primes.o
 	@echo "============="
 
 $(OBJ_DIR)/show_primes.o: $(SRC_DIR)/task_three/show_primes.cpp $(INC_DIR)/task_three/show_primes.h
-	$(CC) -c $(CFLAGS) -o $@ $< 
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+task_four: $(OBJ_DIR)/task_four.o
+	@echo "============="
+	@echo "Connecting the target $@"
+	@echo "============="
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
+	@echo "+++ [Executable task_four created in $(BIN_DIR)] +++"
+	@echo "============="
+
+$(OBJ_DIR)/task_four.o: $(SRC_DIR)/task_four/task_four.cpp
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 doxy:
 	$(RM) $(DOC_DIR)/*
