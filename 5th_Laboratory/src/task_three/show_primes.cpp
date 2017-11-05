@@ -30,10 +30,15 @@ int main(int argc, char const **argv)
 	// ========================================================================================
 	auto curr_prime_number = std::begin(numbers);
 	std::cout << "Numeros primos [1-" << i_size << "]: ";
-	while( curr_prime_number != std::end(numbers) )
+	while( curr_prime_number < std::end(numbers) )
 	{
 		curr_prime_number = std::find_if (curr_prime_number, numbers.end(), isPrime());
-		std::cout << &curr_prime_number << " ";
+	    // In case find_if can't find any prime number, the return will be an iterator pointing
+		// to numbers.end(). Since we do not want to print any possible garbage, we must check
+		// this possibility.
+		if( curr_prime_number < numbers.end() )
+			std::cout << *curr_prime_number << " ";
+		++curr_prime_number;
 	}
 	std::cout << std::endl;
 	// ========================================================================================	
