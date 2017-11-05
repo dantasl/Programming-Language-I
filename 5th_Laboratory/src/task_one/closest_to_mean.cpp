@@ -1,3 +1,11 @@
+/**
+ * @file    closest_to_mean.cpp
+ * @brief   This file tests the implementation of function closest2mean().
+ * @author  Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since   04/11/2017
+ * @date    04/11/2017
+ */
+
 #include "task_one/closest_to_mean.h"
 #include <iostream>
 #include <vector>

@@ -1,3 +1,11 @@
+/**
+ * @file    print_elements.cpp
+ * @brief   This file tests the implementation of function print_elements().
+ * @author  Lucas Gomes Dantas (dantaslucas@ufrn.edu.br)
+ * @since   04/11/2017
+ * @date    04/11/2017
+ */
+
 #include "task_two/print_elements.h"
 
 #include <set>
