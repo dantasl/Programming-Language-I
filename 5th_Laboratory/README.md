@@ -11,5 +11,17 @@ This algorithm was developed for the Programming Language I class (<b>IMD/UFRN -
 * Type <code><b>make</b></code>;
 * If you want to execute question 1, type <code><b>./bin/closest_to_mean</b></code>;
 * If you want to execute question 2, type <code><b>./bin/print_elements</b></code>;
-* If you want to generate Doxygen's documentation, type <code><b>make doxy</b></code>;
-* To clean project, type <code><b>make clean</b></code>.
+
+To execute question 3, you <b>must</b> provide parameters by prompt. The code will only accept one additional parameter, and it must be an integer. Unexpected behaviour will happen if another type of parameter is given.
+
+A simple example of execution is:
+
+* <code><b>./show_primos 50</b></code>
+
+This will print all prime numbers between 1 and 50.
+
+There's also a question 4, with a code provided by prof. Silvio Costa Sampaio. You can execute its file, but the purpose was only to discuss what does the code do. You can do that by typing:
+
+* <code><b>./bin/task_four</b></code>;
+
+You can also generate the Doxygen's documentation typing <code><b>make doxy</b></code> and clean the project with  <code><b>make clean</b></code>.
