@@ -15,10 +15,10 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 
 .PHONY: all clean distclean doxy
 
-all: linux
+all: linux windows
 
 debug: CFLAGS += -g -O0
-debug: 
+debug: linux windows
 
 #LINUX
 
@@ -46,15 +46,15 @@ lucas.so: $(INC_DIR)/questao01/corpo_geometrico.hpp $(INC_DIR)/questao01/circulo
 	$(INC_DIR)/questao01/cubo.hpp $(INC_DIR)/questao01/esfera.hpp $(INC_DIR)/questao01/paralelepipedo.hpp \
 	$(INC_DIR)/questao01/piramide.hpp $(INC_DIR)/questao01/quadrado.hpp $(INC_DIR)/questao01/retangulo.hpp \
 	$(INC_DIR)/questao01/triangulo.hpp
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/questao01/corpo_geometrico.hpp -o $(OBJ_DIR)/corpo_geometrico.o
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/questao01/circulo.hpp -o $(OBJ_DIR)/circulo.o
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/questao01/cubo.hpp -o $(OBJ_DIR)/cubo.o
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/questao01/esfera.hpp -o $(OBJ_DIR)/esfera.o
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/questao01/paralelepipedo.hpp -o $(OBJ_DIR)/paralelepipedo.o
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/questao01/piramide.hpp -o $(OBJ_DIR)/piramide.o
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/questao01/quadrado.hpp -o $(OBJ_DIR)/quadrado.o
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/questao01/retangulo.hpp -o $(OBJ_DIR)/retangulo.o
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/questao01/triangulo.hpp -o $(OBJ_DIR)/triangulo.o
+	$(CC) $(CFLAGS) -fPIC -x c++ -c $(INC_DIR)/questao01/corpo_geometrico.hpp -o $(OBJ_DIR)/corpo_geometrico.o
+	$(CC) $(CFLAGS) -fPIC -x c++ -c $(INC_DIR)/questao01/circulo.hpp -o $(OBJ_DIR)/circulo.o
+	$(CC) $(CFLAGS) -fPIC -x c++ -c $(INC_DIR)/questao01/cubo.hpp -o $(OBJ_DIR)/cubo.o
+	$(CC) $(CFLAGS) -fPIC -x c++ -c $(INC_DIR)/questao01/esfera.hpp -o $(OBJ_DIR)/esfera.o
+	$(CC) $(CFLAGS) -fPIC -x c++ -c $(INC_DIR)/questao01/paralelepipedo.hpp -o $(OBJ_DIR)/paralelepipedo.o
+	$(CC) $(CFLAGS) -fPIC -x c++ -c $(INC_DIR)/questao01/piramide.hpp -o $(OBJ_DIR)/piramide.o
+	$(CC) $(CFLAGS) -fPIC -x c++ -c $(INC_DIR)/questao01/quadrado.hpp -o $(OBJ_DIR)/quadrado.o
+	$(CC) $(CFLAGS) -fPIC -x c++ -c $(INC_DIR)/questao01/retangulo.hpp -o $(OBJ_DIR)/retangulo.o
+	$(CC) $(CFLAGS) -fPIC -x c++ -c $(INC_DIR)/questao01/triangulo.hpp -o $(OBJ_DIR)/triangulo.o
 	$(CC) -shared -fPIC -o $(LIB_DIR)/$@ $(OBJ_DIR)/circulo.o $(OBJ_DIR)/corpo_geometrico.o $(OBJ_DIR)/cubo.o \
 	$(OBJ_DIR)/esfera.o $(OBJ_DIR)/paralelepipedo.o $(OBJ_DIR)/piramide.o $(OBJ_DIR)/quadrado.o \
 	$(OBJ_DIR)/retangulo.o $(OBJ_DIR)/triangulo.o
@@ -86,15 +86,15 @@ lucas.dll: $(INC_DIR)/questao01/corpo_geometrico.hpp $(INC_DIR)/questao01/circul
 	$(INC_DIR)/questao01/cubo.hpp $(INC_DIR)/questao01/esfera.hpp $(INC_DIR)/questao01/paralelepipedo.hpp \
 	$(INC_DIR)/questao01/piramide.hpp $(INC_DIR)/questao01/quadrado.hpp $(INC_DIR)/questao01/retangulo.hpp \
 	$(INC_DIR)/questao01/triangulo.hpp
-	$(CC) $(CFLAGS) -c $(INC_DIR)/questao01/corpo_geometrico.hpp -o $(OBJ_DIR)/corpo_geometrico.o
-	$(CC) $(CFLAGS) -c $(INC_DIR)/questao01/circulo.hpp -o $(OBJ_DIR)/circulo.o
-	$(CC) $(CFLAGS) -c $(INC_DIR)/questao01/cubo.hpp -o $(OBJ_DIR)/cubo.o
-	$(CC) $(CFLAGS) -c $(INC_DIR)/questao01/esfera.hpp -o $(OBJ_DIR)/esfera.o
-	$(CC) $(CFLAGS) -c $(INC_DIR)/questao01/paralelepipedo.hpp -o $(OBJ_DIR)/paralelepipedo.o
-	$(CC) $(CFLAGS) -c $(INC_DIR)/questao01/piramide.hpp -o $(OBJ_DIR)/piramide.o
-	$(CC) $(CFLAGS) -c $(INC_DIR)/questao01/quadrado.hpp -o $(OBJ_DIR)/quadrado.o
-	$(CC) $(CFLAGS) -c $(INC_DIR)/questao01/retangulo.hpp -o $(OBJ_DIR)/retangulo.o
-	$(CC) $(CFLAGS) -c $(INC_DIR)/questao01/triangulo.hpp -o $(OBJ_DIR)/triangulo.o
+	$(CC) $(CFLAGS) -x c++ -c $(INC_DIR)/questao01/corpo_geometrico.hpp -o $(OBJ_DIR)/corpo_geometrico.o
+	$(CC) $(CFLAGS) -x c++ -c $(INC_DIR)/questao01/circulo.hpp -o $(OBJ_DIR)/circulo.o
+	$(CC) $(CFLAGS) -x c++ -c $(INC_DIR)/questao01/cubo.hpp -o $(OBJ_DIR)/cubo.o
+	$(CC) $(CFLAGS) -x c++ -c $(INC_DIR)/questao01/esfera.hpp -o $(OBJ_DIR)/esfera.o
+	$(CC) $(CFLAGS) -x c++ -c $(INC_DIR)/questao01/paralelepipedo.hpp -o $(OBJ_DIR)/paralelepipedo.o
+	$(CC) $(CFLAGS) -x c++ -c $(INC_DIR)/questao01/piramide.hpp -o $(OBJ_DIR)/piramide.o
+	$(CC) $(CFLAGS) -x c++ -c $(INC_DIR)/questao01/quadrado.hpp -o $(OBJ_DIR)/quadrado.o
+	$(CC) $(CFLAGS) -x c++ -c $(INC_DIR)/questao01/retangulo.hpp -o $(OBJ_DIR)/retangulo.o
+	$(CC) $(CFLAGS) -x c++ -c $(INC_DIR)/questao01/triangulo.hpp -o $(OBJ_DIR)/triangulo.o
 	$(CC) -shared -o $(LIB_DIR)/$@ $(OBJ_DIR)/circulo.o $(OBJ_DIR)/corpo_geometrico.o $(OBJ_DIR)/cubo.o \
 	$(OBJ_DIR)/esfera.o $(OBJ_DIR)/paralelepipedo.o $(OBJ_DIR)/piramide.o $(OBJ_DIR)/quadrado.o \
 	$(OBJ_DIR)/retangulo.o $(OBJ_DIR)/triangulo.o
